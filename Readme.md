@@ -16,3 +16,5 @@ Setup a simple config file to set `.css` file locations and `.html` file locatio
     "htmlFilePath": "./dist/"
 }
 ```
+# Todo
+- Support parsing other file types (such as `.js` / `.jsx` , `.php`, `.hbs`, etc.) for `class` or `className` (configurable)
