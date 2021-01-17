@@ -21,6 +21,7 @@ async function main() {
   let isCssDirectory = fsSynchronus.statSync(config.cssFilePath).isDirectory();
   let selectors;
   if (!isCssDirectory) {
+    console.log(`Reading CSS from file: ${config.cssFilePath}`);
     let css = await fs.readFile(config.cssFilePath, "utf8");
     selectors = new Set(
       css.match(/(?:[\.]{1})([a-zA-Z_]+[\w-_]*)(?:[\s\.\,\{\>#\:]{0})/gim)
@@ -31,6 +32,7 @@ async function main() {
 
     for (const file of files) {
       if (path.extname(file) === ".css") {
+        console.log(`Reading CSS from file: ${file}`);
         let css = await fs.readFile(file, "utf8");
         let currentFileClasses = css.match(
           /(?:[\.]{1})([a-zA-Z_]+[\w-_]*)(?:[\s\.\,\{\>#\:]{0})/gim
@@ -47,12 +49,14 @@ async function main() {
   // check if set config is directory, or file
   let isDirectory = fsSynchronus.statSync(config.htmlFilePath).isDirectory();
   if (!isDirectory) {
+    console.log(`Reading HTML file: ${config.htmlFilePath}`);
     let html = await fs.readFile(config.htmlFilePath, "utf8");
     await removeUsedClasses(selectors, html);
   } else if (isDirectory) {
     const files = getAllFiles(config.htmlFilePath);
     for (const file of files) {
       if (path.extname(file) === ".html") {
+        console.log(`Reading HTML file: ${file}`);
         let html = await fs.readFile(file, "utf8");
         await removeUsedClasses(selectors, html);
       }
@@ -77,4 +81,12 @@ async function removeUsedClasses(css, html) {
   });
 }
 
-main();
+main()
+  .then(function () {
+    console.log("Finished");
+    process.exit(0);
+  })
+  .catch(function (err) {
+    console.log("Error: " + err);
+    process.exit(1);
+  });
