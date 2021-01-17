@@ -1,0 +1,15 @@
+{
+  "name": "css-cleaner",
+  "version": "1.0.0",
+  "description": "Clean your unused css bloat",
+  "main": "index.js",
+  "author": "Jake Ols",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "default": "node index.js"
+  },
+  "dependencies": {
+    "node-html-parser": "^2.0.2"
+  }
+}
