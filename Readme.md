@@ -8,7 +8,7 @@ $ cd css-cleaner && yarn install
 ```
 
 # Config
-Setup a simple config file to set `.css` file locations and `.html` file locations. `cssFilePath` and `htmlFilePath` can be directories, and can contain any file types. 
+Setup a simple config file called `config.json` to set `.css` file locations and `.html` file locations. `cssFilePath` and `htmlFilePath` can be directories, and can contain any file types. See example below or `config.json.example` file.
 
 ```json
 {
