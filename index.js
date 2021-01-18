@@ -72,13 +72,18 @@ async function main() {
  * Removes used selectors from set (mutating it)
  */
 async function removeUsedClasses(css, html) {
-  const root = HTMLParser.parse(html);
-  css.forEach((item) => {
-    let selected = root.querySelectorAll(item);
-    if (selected.length > 0) {
-      css.delete(item);
-    }
-  });
+  try {
+    const root = HTMLParser.parse(html);
+    css.forEach((item) => {
+      let selected = root.querySelectorAll(item);
+      if (selected.length > 0) {
+        console.log(`Found used selector: ${item}`);
+        css.delete(item);
+      }
+    });  
+  } catch (err) {
+    console.log(`Error parsing html: ${err}`)
+  }
 }
 
 main()
