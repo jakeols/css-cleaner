@@ -1,15 +1,22 @@
 {
-  "name": "css-cleaner",
+  "name": "@jakeols/css-cleaner",
   "version": "1.0.0",
   "description": "Clean your unused css bloat",
-  "main": "index.js",
+  "main": "./lib/cli.js",
   "author": "Jake Ols",
   "license": "MIT",
   "private": false,
+  "preferGlobal": true,
+  "bin": {
+    "css-cleaner": "./bin/css-cleaner"
+  },
   "scripts": {
     "default": "node index.js"
   },
   "dependencies": {
     "node-html-parser": "^2.0.2"
+  },
+  "devDependencies": {
+    "yargs": "^16.2.0"
   }
 }
