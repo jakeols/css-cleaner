@@ -1,6 +1,6 @@
 {
   "name": "@jakeols/css-cleaner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clean your unused css bloat",
   "main": "./lib/cli.js",
   "author": "Jake Ols",
@@ -14,9 +14,7 @@
     "default": "node index.js"
   },
   "dependencies": {
-    "node-html-parser": "^2.0.2"
-  },
-  "devDependencies": {
+    "node-html-parser": "^2.0.2",
     "yargs": "^16.2.0"
   }
 }
