@@ -1,20 +1,27 @@
+# `@jakeols/css-cleaner`
+
 Small utility to find unused CSS classes in your HTML files, allowing you to purge them. Made for static sites where there is a large number of generated `.html` files with a lot of compiled styles. 
 
-# Installation
-Clone the repo, and install dependencies
+## Installation
+Install via `npm` or `yarn` globally
 ```bash
-$ git clone git@github.com:jakeols/css-cleaner.git
-$ cd css-cleaner && yarn install
+$ npm install @jakeols/css-cleaner -g
+```
+## Usage 
+`css-cleaner --help` will show the following CLI args
+```bash
+Options:
+  -s, --styles     The path to your styles.                           [required]
+  -t, --templates  The path to your templates                         [required]
+  -h, --help       Show help                                           [boolean]
+  -v, --version    Show version number                                 [boolean]
+
+Examples:
+  css-cleaner -s=style.css -t=index.html  Print unused styles from given
+                                          templates
 ```
 
-# Config
-Setup a simple config file called `config.json` to set `.css` file locations and `.html` file locations. `cssFilePath` and `htmlFilePath` can be directories, and can contain any file types. See example below or `config.json.example` file.
+__Note__: `--templates` and `--styles` can be files, or directories. 
 
-```json
-{
-    "cssFilePath": "./dist/main.css",
-    "htmlFilePath": "./dist/"
-}
-```
-# Todo
+## Todo
 - Support parsing other file types (such as `.js` / `.jsx` , `.php`, `.hbs`, etc.) for `class` or `className` (configurable)
