@@ -1,7 +1,3 @@
-# Test data
-/test
-config.json
-
 # Logs
 logs
 *.log
@@ -118,3 +114,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+*.log
+.DS_Store
+node_modules
+dist

@@ -1,20 +1,63 @@
 {
-  "name": "@jakeols/css-cleaner",
   "version": "1.0.1",
   "description": "Clean your unused css bloat",
-  "main": "./lib/cli.js",
-  "author": "Jake Ols",
   "license": "MIT",
-  "private": false,
   "preferGlobal": true,
+  "main": "dist/index.js",
   "bin": {
     "css-cleaner": "./bin/css-cleaner"
   },
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
-    "default": "node index.js"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --no-cache",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "@jakeols/css-cleaner",
+  "author": "Jake Ols",
+  "module": "dist/css-cleaner.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/css-cleaner.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/css-cleaner.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.2",
+    "husky": "^5.1.3",
+    "size-limit": "^4.9.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.2"
   },
   "dependencies": {
-    "node-html-parser": "^2.0.2",
+    "node-html-parser": "^3.0.3",
     "yargs": "^16.2.0"
   }
 }
