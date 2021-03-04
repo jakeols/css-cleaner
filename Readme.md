@@ -1,6 +1,6 @@
 # `@jakeols/css-cleaner`
 
-Small utility to find unused CSS classes in your HTML files, allowing you to purge them. Made for static sites where there is a large number of generated `.html` files with a lot of compiled styles. 
+Small utility to find unused CSS classes in your HTML files, allowing you to purge them. Made for static sites where there is a large number of generated `.html` files with a lot of compiled styles. <b>Requires Node > 12.x</b>
 
 ## Installation
 Install via `npm` or `yarn` globally
